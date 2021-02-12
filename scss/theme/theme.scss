@@ -425,7 +425,7 @@ nav {
 //----------------------------------------------
 .sponsors {
 	position: relative;
-	background: url(../../img/sponsor-vec.svg);
+	background: url(../img/sponsor-vec.svg);
 	background-repeat: no-repeat;
 	background-size: 150% 100%;
 	@media (max-width: 576px) {background-size: auto 100%;}
@@ -481,7 +481,7 @@ nav {
 .footer-info {
 	@extend .normal-text;	
 	position: relative;
-	background: url(../../img/footer-vec.svg);
+	background: url(../img/footer-vec.svg);
 	background-repeat: no-repeat;
 	background-size: 150% 100%;	
 	width: 100%;
