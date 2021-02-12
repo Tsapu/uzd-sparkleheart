@@ -1,0 +1,663 @@
+
+/*Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+/*Colors*/
+$black-1: #000000;
+$black-2: #060606;
+$blue: #2F4858;
+$orange: #FFA800;
+$orange-washed: #FFCB66;
+$yellow: #FFDA16;
+$white: #FFFFFF;
+
+@function resize($unit, $ratio){
+	$resized: $unit * $ratio;
+	@return $resized;
+}
+
+//Breakpoints: <0--------------------576px(sm)-----------992px(lg)--------------------+Inf>
+
+
+html, body {
+    width:100%;
+    height:100%;
+    margin:0;
+	overflow-x: hidden;
+}
+
+
+//----------------------------------------------
+// Text Formats & Headings
+//----------------------------------------------
+.normal-text {
+	font-family: Montserrat;
+	font-style: normal;
+	font-size: 18px;
+	line-height: 22px;
+}
+
+.nav-text {
+	@extend .normal-text;
+	color: $black-2;
+	font-weight: 500;
+}
+
+.jumbo-text {
+	@extend .normal-text;
+	font-weight: 400;
+	color: $blue;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.ph-text {
+	@extend .normal-text;
+	font-weight: 400;
+	color: $blue;
+	letter-spacing: -0.015em;
+}
+
+.entry-lbl {
+	@extend .normal-text;
+	font-weight: 400;
+	color: $blue;
+	letter-spacing: -0.015em;
+	font-size: 14px;
+	text-align: left;
+}
+
+h1 {
+	font-family: Oswald;
+	font-weight: 500;
+	font-size: 24px;
+	line-height: 36px;
+	color: $blue;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+//----------------------
+// Resize ratios:
+//----------------------
+$r-tablet: .805;
+$r-mobile: .490;
+$r-mobile-t: .608;
+
+//----------------------
+// Pos & size:
+//----------------------
+$logo-width: 9.938rem;
+$logo-height: 9.125rem;
+$logo-left: 6.375rem;
+$logo-top: -3.125rem;
+
+$nav-height: 5.813rem;
+$border-offset: 5.313rem;
+
+$menu-icon-width-t: 1.55rem;
+$menu-icon-height-t: 1.25rem;
+$menu-icon-right-t: 7.738rem;
+$menu-icon-top-t: 2.188rem;
+
+$menu-icon-width-m: 1.147rem;
+$menu-icon-height-m: .925rem;
+$menu-icon-right-m: 1.362rem;
+$menu-icon-top-m: 1.276rem;
+
+$menu-top: 3.188rem;
+$menu-left: 21.563rem;
+
+$about-y: 9.375rem;
+$about-y-m: 5rem;
+
+//----------------------------------------------
+// Navigation bar
+//----------------------------------------------
+ 
+nav {
+	position: fixed;
+	height: $nav-height;
+	width: 100%;
+	background-color: white;
+	z-index: 4;
+
+	a:hover {
+		color: $black-2;
+		font-weight: 600;
+		text-decoration: underline $orange 3px;
+		text-underline-offset: 20%
+	}
+}
+
+.nav-logo {
+	position: absolute;
+	width: $logo-width;
+	height: $logo-height;
+	top: $logo-top;
+	left: $logo-left;
+	z-index: 100;
+	
+	@media (max-width: 992px) {
+		width: resize($logo-width, $r-tablet);
+		height: resize($logo-height, $r-tablet);
+		top: resize($logo-top, $r-tablet);
+		left: resize($logo-left, $r-tablet);	
+	}
+}
+
+.nav-border {
+	position: inherit;
+	width: 100%;
+	//height: 2.183rem;
+	top: $border-offset;
+	z-index: 4;
+}
+
+.menu-icon,
+.menu-close {
+	display: none;
+	position: absolute;
+	cursor: pointer;
+	z-index: 30;
+}
+
+.nav-list {
+	position: absolute;
+	right: 0;
+	//min-width: 61.387rem;
+	height: auto;
+	top: $menu-top;
+	left: $menu-left;
+	z-index: 5;
+
+	li {
+		padding-right: 1.688rem;
+		a {@extend .nav-text}
+		div a {
+			&:not(:last-child):after {
+				content: "|";
+				font-size: 16px;
+				font-weight: 600;
+				margin-left: 0.3rem;
+			}
+		}
+	}
+}
+
+/*Navigation list formatting class for tablet & mobile*/
+.menu-list {
+	@extend .nav-text;
+	font-size: 24px;
+	li a {color: $black-1;}
+	text-align: center;
+	
+	position: relative;
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	padding: 6.5rem 0;
+	
+	background-color: white;
+	z-index: 20;
+	flex-direction: column !important;
+	
+	li:first-child {
+		a:not(:last-child) {padding-right: 4rem;}
+	}
+	
+	@media (max-width: 576px) {font-size: 18px;}
+	@media (min-width: 992px) {visibility: hidden;}
+}
+
+.empty-nav-div {
+	position: relative;
+	width: 100%;
+	height: $menu-top;
+}
+
+//----------------------------------------------
+// Introduction
+//----------------------------------------------
+.video-container {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
+	.play-icon {
+		cursor: pointer;
+		@media (max-width: 576px) {height: 48px; width: 50px;}
+	}
+	
+	.main-vid {
+		position: absolute;
+		display: none;
+	}
+	.close-icon {
+		position: absolute;
+		display: none;
+		right: 6%;
+		top: 16%;
+		cursor: pointer;
+		@media (max-width: 576px) {height: 14px; width: 14px;}
+	}
+	
+}
+
+.about {
+	@extend .jumbo-text;
+	position: relative;
+	text-align: center;
+	max-width: 40.875rem;
+	margin: $about-y auto;
+	
+	@media (max-width: 576px) {margin: $about-y-m auto};
+}
+ 
+//----------------------------------------------
+// Gallery
+//----------------------------------------------
+
+%gallery-vector {
+	position: absolute;
+	z-index: 2;
+	width: 100%;
+
+	@media (max-width: 576px) {width: initial;}
+}
+
+.gallery {
+	position: relative;
+	
+	&-vec-top {
+		@extend %gallery-vector;
+		top: -3px;
+		@media (max-width: 576px) {top: -15px;}
+	}
+	&-vec-btm {
+		@extend %gallery-vector;
+		bottom: -3px;
+		@media (max-width: 576px) {bottom: -15px;}
+	}
+}
+ 
+.img-container {
+	display: flex;
+	width: 100%;
+	
+	img {
+		width: 100%;
+		height: auto;
+	}
+	/*#img-column {width: 50%;}*/
+	
+	@media (max-width: 576px) {flex-wrap: wrap-reverse;}
+}
+
+.img-row {
+	display: flex;
+	flex-grow: 1;
+	align-items: center;
+	
+	div {flex-grow: 1;}
+}
+
+#row-1 {
+	@media (max-width: 576px) {align-items: flex-start}
+}
+#row-2 {
+	@media (max-width: 576px) {align-items: flex-end}
+}
+ 
+ //----------------------------------------------
+ // Contact Us
+ //----------------------------------------------
+.contact-div {
+	position: relative;
+	width: 100%;
+	margin: 9.375rem auto;
+	text-align: center;
+	
+	@media (max-width: 576px) {
+		margin: 7.5rem auto;
+	}
+}
+
+.contact-field {
+	position: relative;
+	display: inline-block;
+	margin-bottom: 5rem;
+	padding: 0 5%;
+	
+	h1 {padding-bottom: 3.125rem;}
+	
+	@media (max-width: 992px) {
+		h1 {
+			padding-bottom: 1.875rem;
+			font-size: 18px;
+			line-height: 26.68px;
+		}
+	}
+}
+
+
+%btn {
+	@extend .normal-text;
+	font-weight: 500;
+	border-radius: 20px;
+	border-style: none;
+	background-color: $orange;
+	color: $white;
+	
+	&:hover {
+		background-color: $yellow;
+		cursor: pointer;
+	}
+	
+	&:focus {outline: 0;}
+}
+
+.btn {
+	&-main {
+		@extend %btn;
+		width: 233px;
+		height: 50px;
+	}
+	&-send {
+		@extend %btn;
+		width: 182px;
+		height: 62px;
+		font-size: 24px;
+		border-radius: 30px;
+	}
+}
+
+.entry-field {
+	width: 40rem;
+	h1 {margin-bottom: 2rem;}
+	@media (max-width: 576px) {width: 20rem}
+}
+
+.form-control,
+.form-control:focus, {
+	background-color: rgba(196, 196, 196, 0.4);
+}
+
+#data-entry-consent {
+	-webkit-appearance: none;
+	position: absolute;
+	display: inline-block;
+	background-color: rgba(196, 196, 196, 0.4);
+	padding: 8px;
+	border-radius: 2px;
+	outline: none;
+	cursor: pointer;
+	
+	&:checked:after {
+		content: '\2714';
+		font-family: Montserrat;
+		font-weight: 600;
+		font-size: 14px;
+		position: absolute;
+		top: -2px;
+		left: 2px;
+		color: $orange;
+	}
+}
+
+.info-message {
+	font-family: Helvetica;
+	font-size: 15px;
+	display: none;
+	
+	&.failure-msg {
+		color: rgb(235,35,52);
+	}
+	
+	&.success-msg {
+		color: rgb(0,161,5);
+	}
+}
+
+//----------------------------------------------
+// Foooter
+//----------------------------------------------
+.sponsors {
+	position: relative;
+	background: url(../../img/sponsor-vec.svg);
+	background-repeat: no-repeat;
+	background-size: 150% 100%;
+	@media (max-width: 576px) {background-size: auto 100%;}
+	
+	width: 100%;
+	height: auto;
+	
+	h1 {
+		//text-align: center;
+		padding-top: 5rem;
+	}
+	
+	margin-top: 5rem;
+	border: 1px solid transparent; //?
+}
+
+.sponsor-div {
+	display: flex;
+	width: 100%;
+	height: auto;
+	padding: 0 10%;
+	margin: 5rem 0;
+	
+	@media (max-width: 992px) {margin: 2.25rem 0 4.25rem}
+	@media (max-width: 576px) {margin: 3.75rem 0}
+	
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: space-between;
+	
+	img {
+		width: 15rem;
+		max-height: 8rem;
+		object-fit: contain;
+		margin-bottom: 1rem;
+		
+		&:not(:last-child) {margin-right: 2rem;}
+		
+		@media (max-width: 992px){
+			width: 12.5rem;
+			max-height: 6.5rem;
+		}
+		
+		@media (max-width: 576px){
+			width: 8rem;
+			max-height: 4rem;
+			&:not(:last-child) {margin-right: 1rem;}
+		}
+	}
+}
+
+.footer-info {
+	@extend .normal-text;	
+	position: relative;
+	background: url(../../img/footer-vec.svg);
+	background-repeat: no-repeat;
+	background-size: 150% 100%;	
+	width: 100%;
+	height: auto;
+	margin-top: -2.75rem;
+	padding: 8rem 4rem 0;
+	
+	@media (max-width: 576px) {
+		padding: 6rem 2rem 2rem;
+		background-size: auto 100%;
+		margin-top: -4rem;
+	}
+	
+	color: $white;
+	font-weight: 500;
+	
+	.logo-column {
+		@media (max-width: 992px) {padding-right: 4rem;}
+	}
+	.footer-logo {
+		width: 11.375rem;
+		height: auto;
+		cursor: pointer;
+		@media (max-width: 1130px) {width: 10.125rem;}
+		@media (max-width: 576px) {width: 6.25rem;}
+	}
+	
+	.logo-column ul {
+		display: none;
+		@media (max-width: 992px) {display: initial;}
+	}
+	
+	.foot-nav {
+		li {padding-bottom: 1.25rem;}	
+		a {
+			text-decoration: none;
+			color: $white;
+			&:hover {
+				//font-weight: 600;
+				text-decoration: underline $orange-washed 3px;
+				text-underline-offset: 20%
+			}
+		}
+		@media (max-width: 992px) {display: none;}
+	}
+	
+	.org-info {
+		@media (max-width: 992px) {display: none;}
+	}
+	
+	.contact-info {
+		text-align: right;
+		img {margin-left: 1.875rem;}
+		
+		ul li:last-child {display: none;}
+		@media (max-width: 992px) {
+			ul li:last-child {
+				display: initial;
+				font-weight: 700;
+			}
+			ul li:first-child {
+				display: none;
+			}
+		}
+		.socials {
+			margin: 2.188rem 0;
+		}
+		
+		@media (max-width: 576px) {text-align: left;}
+	}
+	
+	.org-info,
+	.contact-info,
+	.logo-column {
+		li {
+			padding-bottom: 0.75rem;
+			&:first-child {
+				font-size: 24px;
+				padding-bottom: 1.375rem;				
+			}
+		}
+	}
+	
+	.footer-btm-row {
+		div {padding-bottom: 0.25rem;}
+		@media (max-width: 992px) {font-size: 16px} 
+		@media (max-width: 576px) {font-size: 14px} 
+		
+		div:first-child {
+			@media (max-width: 992px) {
+				br.responsive {display: none;}
+			}
+		}		
+		div:last-child {
+			text-align: right;
+			@media (max-width: 576px) {text-align: left;} 
+		}
+	}
+}
+
+
+
+
+//----------------------------------------------
+// Media rules for nav-bar:
+//----------------------------------------------
+
+@media screen and (max-width: 1340px) {
+	.nav-list li a {font-size: 14px;}
+}
+@media screen and (max-width: 1200px) {
+	.nav-list {left: $menu-left - 6rem;}
+}
+@media screen and (min-width: 992px) {
+	.nav-list {visibility: visible !important;}
+	.menu-close {display: none !important;}
+}
+
+//Tablet
+@media screen and (max-width: 992px) {	
+	nav {height: resize($nav-height, $r-tablet);}	
+	.nav-logo {
+		//background-color: #FFCB66;
+		width: resize($logo-width, $r-tablet);
+		height: resize($logo-height, $r-tablet);
+		top: resize($logo-top, $r-tablet);
+		left: resize($logo-left, $r-tablet);
+	}	
+	.nav-border {top: resize($border-offset, $r-tablet);}
+	.menu-icon,
+	.menu-close {
+		width: $menu-icon-width-t;		
+		height: $menu-icon-height-t;
+		top: $menu-icon-top-t;
+		right: $menu-icon-right-t;
+	}
+	.menu-icon {display: initial;}
+	.nav-list {visibility: hidden;}
+	.empty-nav-div {height: resize($border-offset, $r-tablet)}
+}
+
+//Mobile
+@media screen and (max-width: 576px) {
+	nav {height: resize($nav-height, $r-mobile);}	
+	.nav-logo {
+		width: resize($logo-width, $r-mobile);
+		height: resize($logo-height, $r-mobile);
+		top: resize($logo-top, $r-mobile);
+		left: resize($logo-left, $r-mobile) - 2rem;
+	}
+	.nav-border {top: resize($border-offset, $r-mobile);}	
+	.menu-icon,
+	.menu-close {
+		width: $menu-icon-width-m;		
+		height: $menu-icon-height-m;
+		top: $menu-icon-top-m;
+		right: $menu-icon-right-m;
+	}
+	.empty-nav-div {height: resize($border-offset, $r-mobile)}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
