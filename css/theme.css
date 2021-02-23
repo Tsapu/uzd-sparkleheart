@@ -201,7 +201,9 @@ nav a:hover {
 }
 @media (max-width: 576px) {
   .about {
-    margin: 5rem auto;
+    margin: 5rem 1.25rem;
+    font-size: 12px;
+    line-height: 14.63px;
   }
 }
 
@@ -434,7 +436,7 @@ nav a:hover {
 }
 @media (max-width: 576px) {
   .sponsor-div img {
-    width: 8rem;
+    width: 7.45rem;
     max-height: 4rem;
   }
   .sponsor-div img:not(:last-child) {

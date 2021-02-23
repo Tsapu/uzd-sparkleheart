@@ -9,7 +9,6 @@ jQuery.fn.invisible = function() {
 
 
 // Menu:
-let swapped = false;
 $('.menu-icon').click(function() {
 	
 	$('.menu-icon').toggle();
@@ -19,9 +18,7 @@ $('.menu-icon').click(function() {
 	
 	$('#nav-list').toggleClass('nav-list'); // Remove desktop styling
 	$('#menu').addClass('menu-list'); // Add m&t styling
-	if (!swapped) {
-		$('#menu').prepend($ ('#menu>li:last-child') );
-	}
+	$('#menu').prepend($ ('#menu>li:last-child') ) // Change list element position last->first
 	$('#nav-list').visible(); // Show menu
 })
 
@@ -31,15 +28,15 @@ $('.menu-close').click(function() {
 	
 	$('#nav-list').toggleClass('nav-list');
 	$('#menu').removeClass('menu-list');
-	if (!swapped) {
-		$('#menu').append($ ('#menu>li:first-child') );
-	}
-	$('#nav-list').invisible(); // Hide menu
+	
+	$('#menu').append($ ('#menu>li:first-child') );
+	$('#nav-list').invisible();
 })
 
 
 // Video controls:
 $('.play-icon').click(function() {
+	$('.main-vid')[0].load();
 	$('.main-vid')[0].play();
 	$('.main-vid').toggle();
 	$('.play-icon').toggle();
@@ -47,6 +44,7 @@ $('.play-icon').click(function() {
 })
 
 $('.close-icon').click(function() {
+	$('.main-vid')[0].pause();
 	$('.main-vid').toggle();
 	$('.play-icon').toggle();
 	$('.close-icon').toggle();

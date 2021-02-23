@@ -184,8 +184,7 @@ nav {
 				font-size: 16px;
 				font-weight: 600;
 				margin-right: .5rem;
-			}
-			
+			}			
 		}
 	}
 }
@@ -260,7 +259,11 @@ nav {
 	max-width: 40.875rem;
 	margin: $about-y auto;
 	
-	@media (max-width: 576px) {margin: $about-y-m auto};
+	@media (max-width: 576px) {
+		margin: $about-y-m 1.25rem;
+		font-size: 12px;
+		line-height: 14.63px;
+	}
 }
  
 //----------------------------------------------
@@ -479,7 +482,7 @@ nav {
 		}
 		
 		@media (max-width: 576px){
-			width: 8rem;
+			width: 7.45rem;
 			max-height: 4rem;
 			&:not(:last-child) {margin-right: 1rem;}
 		}
