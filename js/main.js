@@ -11,17 +11,18 @@ jQuery.fn.invisible = function() {
 // Menu:
 let swapped = false;
 $('.menu-icon').click(function() {
+	
 	$('.menu-icon').toggle();
 	$('.menu-close').toggle();
 	
 	// No need to adjust for viewport since the icon's clickability already accounts for it
-
-	$('#nav-list').toggleClass('nav-list');
-	$('#menu').addClass('menu-list')
+	
+	$('#nav-list').toggleClass('nav-list'); // Remove desktop styling
+	$('#menu').addClass('menu-list'); // Add m&t styling
 	if (!swapped) {
-		$('#menu').prepend($ ('#menu li:last-child') );
+		$('#menu').prepend($ ('#menu>li:last-child') );
 	}
-	$('#nav-list').visible();
+	$('#nav-list').visible(); // Show menu
 })
 
 $('.menu-close').click(function() {
@@ -30,10 +31,10 @@ $('.menu-close').click(function() {
 	
 	$('#nav-list').toggleClass('nav-list');
 	$('#menu').removeClass('menu-list');
-	$('#nav-list').invisible();
 	if (!swapped) {
-		$('#menu').append($ ('#menu li:first-child') );
-	}	
+		$('#menu').append($ ('#menu>li:first-child') );
+	}
+	$('#nav-list').invisible(); // Hide menu
 })
 
 

@@ -172,15 +172,20 @@ nav {
 	z-index: 5;
 
 	li {
+		a {@extend .nav-text}		
 		padding-right: 1.688rem;
-		a {@extend .nav-text}
-		div a {
-			&:not(:last-child):after {
+		
+		/* Language ul */		
+		ul.lang li {
+			display: inline;
+			padding-right: .5rem;
+			&:not(:first-child):before {
 				content: "|";
 				font-size: 16px;
 				font-weight: 600;
-				margin-left: 0.3rem;
+				margin-right: .5rem;
 			}
+			
 		}
 	}
 }
@@ -200,10 +205,13 @@ nav {
 	
 	background-color: white;
 	z-index: 20;
-	flex-direction: column !important;
+	flex-direction: column !important;	
 	
-	li:first-child {
-		a:not(:last-child) {padding-right: 4rem;}
+	li {
+		li /* Nested list items (lang ul children) */ {
+			display: inline;
+			&:not(:last-child) {padding-right: 4rem;}
+		}
 	}
 	
 	@media (max-width: 576px) {font-size: 18px;}

@@ -108,12 +108,17 @@ nav a:hover {
 }
 .nav-list li {
   padding-right: 1.688rem;
+  /* Language ul */
 }
-.nav-list li div a:not(:last-child):after {
+.nav-list li ul.lang li {
+  display: inline;
+  padding-right: 0.5rem;
+}
+.nav-list li ul.lang li:not(:first-child):before {
   content: "|";
   font-size: 16px;
   font-weight: 600;
-  margin-left: 0.3rem;
+  margin-right: 0.5rem;
 }
 
 /*Navigation list formatting class for tablet & mobile*/
@@ -132,7 +137,10 @@ nav a:hover {
 .menu-list li a {
   color: #000000;
 }
-.menu-list li:first-child a:not(:last-child) {
+.menu-list li li {
+  display: inline;
+}
+.menu-list li li:not(:last-child) {
   padding-right: 4rem;
 }
 @media (max-width: 576px) {
