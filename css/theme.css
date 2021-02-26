@@ -10,7 +10,13 @@ html, body {
   overflow-x: hidden;
 }
 
-.normal-text, .footer-info, .btn-send, .btn-main, .entry-lbl, .ph-text, .jumbo-text, .about, .nav-text, .menu-list, .nav-list li a {
+p, h1, h2, h3 {
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.normal-text, .footer-info, .btn-send, .btn-main, .ph-text, .p-text, .about-idea, .about-hp, .nav-text, .menu-list, .nav-list li a {
   font-family: Montserrat;
   font-style: normal;
   font-size: 18px;
@@ -22,10 +28,9 @@ html, body {
   font-weight: 500;
 }
 
-.jumbo-text, .about {
+.p-text, .about-idea, .about-hp {
   font-weight: 400;
   color: #2F4858;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .ph-text {
@@ -34,22 +39,19 @@ html, body {
   letter-spacing: -0.015em;
 }
 
-.entry-lbl {
-  font-weight: 400;
-  color: #2F4858;
-  letter-spacing: -0.015em;
-  font-size: 14px;
-  text-align: left;
-}
-
-h1 {
+.htext, .title, .htext-2 {
   font-family: Oswald;
   font-weight: 500;
-  font-size: 24px;
-  line-height: 36px;
+  font-size: 48px;
+  line-height: 71.14px;
   color: #2F4858;
   text-transform: uppercase;
   text-align: center;
+}
+
+.htext-2 {
+  font-size: 24px;
+  line-height: 36px;
 }
 
 nav {
@@ -157,7 +159,7 @@ nav a:hover {
 .empty-nav-div {
   position: relative;
   width: 100%;
-  height: 3.188rem;
+  height: 5.813rem;
 }
 
 .video-container {
@@ -193,15 +195,58 @@ nav a:hover {
   }
 }
 
-.about {
-  position: relative;
-  text-align: center;
-  max-width: 40.875rem;
-  margin: 9.375rem auto;
+.title {
+  margin-top: 6.8rem;
+  margin-bottom: 3.75rem;
+}
+@media (max-width: 992px) {
+  .title {
+    margin-top: 5rem;
+    margin-bottom: 3.75rem;
+  }
 }
 @media (max-width: 576px) {
-  .about {
+  .title {
+    margin-top: 3.125rem;
+    margin-bottom: 1.875rem;
+    font-size: 36px;
+  }
+}
+
+.p-container, .p-container-vanilla {
+  position: relative;
+  text-align: center;
+  margin: 0 2.5rem;
+}
+.p-container-vanilla {
+  margin: 9.375rem 2.5rem;
+}
+@media (max-width: 576px) {
+  .p-container-vanilla {
     margin: 5rem 1.25rem;
+  }
+}
+
+.about-hp {
+  position: relative;
+  margin: auto;
+  max-width: 40.875rem;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+@media (max-width: 576px) {
+  .about-hp {
+    font-size: 12px;
+    line-height: 14.63px;
+  }
+}
+
+.about-idea {
+  position: relative;
+  margin: auto;
+  max-width: 37.875rem;
+}
+@media (max-width: 576px) {
+  .about-idea {
     font-size: 12px;
     line-height: 14.63px;
   }
@@ -220,6 +265,12 @@ nav a:hover {
 
 .gallery {
   position: relative;
+  margin: 9.375rem 0;
+}
+@media (max-width: 576px) {
+  .gallery {
+    margin: 5rem 0;
+  }
 }
 .gallery-vec-top {
   top: -3px;
@@ -241,7 +292,7 @@ nav a:hover {
 .img-container {
   display: flex;
   width: 100%;
-  /*#img-column {width: 50%;}*/
+  /*#img-column { width: 50%; }*/
 }
 .img-container img {
   width: 100%;
@@ -292,11 +343,11 @@ nav a:hover {
   margin-bottom: 5rem;
   padding: 0 5%;
 }
-.contact-field h1 {
+.contact-field h2 {
   padding-bottom: 3.125rem;
 }
 @media (max-width: 992px) {
-  .contact-field h1 {
+  .contact-field h2 {
     padding-bottom: 1.875rem;
     font-size: 18px;
     line-height: 26.68px;
@@ -332,7 +383,7 @@ nav a:hover {
 .entry-field {
   width: 40rem;
 }
-.entry-field h1 {
+.entry-field h2 {
   margin-bottom: 2rem;
 }
 @media (max-width: 576px) {
@@ -394,7 +445,7 @@ nav a:hover {
     background-size: auto 100%;
   }
 }
-.sponsors h1 {
+.sponsors h2 {
   padding-top: 5rem;
 }
 
