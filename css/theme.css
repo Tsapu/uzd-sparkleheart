@@ -10,7 +10,7 @@ html, body {
   overflow-x: hidden;
 }
 
-p, h1, h2, h3 {
+p, h1, h2, h3, h4 {
   margin: 0;
   margin-block-start: 0;
   margin-block-end: 0;
@@ -58,7 +58,7 @@ p, h1, h2, h3 {
   color: #2F4858;
 }
 
-.htext, .title, .htext-2 {
+.htext, .title, .htext-2, .htext-2-resp, .bold-quote-text {
   font-family: Oswald;
   font-weight: 500;
   font-size: 48px;
@@ -68,9 +68,21 @@ p, h1, h2, h3 {
   text-align: center;
 }
 
-.htext-2 {
+.htext-2, .htext-2-resp, .bold-quote-text {
   font-size: 24px;
   line-height: 36px;
+}
+
+@media (max-width: 576px) {
+  .htext-2-resp, .bold-quote-text {
+    font-size: 18px;
+    line-height: 26.68px;
+  }
+}
+
+.bold-quote-text {
+  text-transform: none;
+  color: #FFFFFF;
 }
 
 nav {
@@ -307,6 +319,39 @@ nav a:hover {
     bottom: -15px;
   }
 }
+.gallery-quote-container {
+  position: absolute;
+  left: 50%;
+  bottom: 5.625rem;
+}
+@media (max-width: 992px) {
+  .gallery-quote-container {
+    bottom: 4rem;
+    left: 0;
+    padding: 0 1rem;
+  }
+}
+@media (max-width: 576px) {
+  .gallery-quote-container {
+    bottom: 3.2rem;
+    left: 0;
+  }
+}
+.gallery-quote {
+  position: relative;
+  left: -50%;
+  max-width: 51.125rem;
+}
+@media (max-width: 992px) {
+  .gallery-quote {
+    left: 0;
+  }
+}
+@media (max-width: 576px) {
+  .gallery-quote {
+    left: 0;
+  }
+}
 
 .img-container, .img-container-single {
   display: flex;
@@ -357,42 +402,48 @@ nav a:hover {
   }
 }
 
-.person-heading {
-  margin-bottom: 1.875rem;
-}
-@media (max-width: 576px) {
-  .person-heading {
-    margin-bottom: 1.25rem;
-  }
-}
-
+/*  .person-heading {
+	 margin-bottom: 1.875rem;
+	 @media (max-width: 576px) { margin-bottom: 1.25rem; }
+ } */
 .quote-block {
   position: relative;
   max-width: 37.5rem;
-  margin: auto;
+  margin: 0 auto 12rem;
 }
 @media (max-width: 992px) {
   .quote-block {
-    margin: 0 5.25rem;
+    margin: 0 5.25rem 12rem;
   }
 }
 @media (max-width: 576px) {
   .quote-block {
-    margin: 0 1.25rem;
+    margin: 0 1.25rem 7.5rem;
   }
 }
 .quote-block p {
+  min-height: 7.5rem;
   margin: 1.875rem 0;
 }
 @media (max-width: 576px) {
   .quote-block p {
+    min-height: 4rem;
     margin: 1.875rem 0 1.25rem;
+    font-size: 12px;
+    line-height: 14.63px;
   }
 }
 .quote-nav-prev {
   transform: scaleX(-1);
-  opacity: 0.5;
   margin-right: 2.9rem;
+  opacity: 0.5;
+}
+
+@media (max-width: 576px) {
+  .q-sub {
+    font-size: 14px !important;
+    line-height: 17px !important;
+  }
 }
 
 .contact-div {
