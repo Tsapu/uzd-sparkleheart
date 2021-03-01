@@ -16,11 +16,46 @@ p, h1, h2, h3, h4 {
   margin-block-end: 0;
 }
 
-.blue {
-  color: #2F4858;
+@media (max-width: 576px) {
+  .m-text-resize {
+    font-size: 14px !important;
+    line-height: 17px !important;
+  }
 }
 
-.normal-text, .footer-info, .btn-send, .btn-main, .quote-text, .entry-lbl, .ph-text, .p-text, .about-idea, .about-hp, .nav-text, .menu-list, .nav-list li a {
+@media (max-width: 576px) {
+  .m-text-resize-L {
+    font-size: 18px !important;
+    line-height: 22px !important;
+  }
+}
+
+.mb-6, .mb-6-m {
+  margin-bottom: 3.75rem !important;
+}
+
+@media (max-width: 576px) {
+  .mb-6-m {
+    margin-bottom: 1.875rem !important;
+  }
+}
+
+.mb-7, .mb-7-m {
+  margin-bottom: 5.625rem !important;
+}
+
+@media (max-width: 576px) {
+  .mb-7-m {
+    margin-bottom: 4.375 !important;
+  }
+}
+
+.align-center {
+  display: flex;
+  justify-content: center;
+}
+
+.normal-text, .footer-info, .btn-send, .btn-main, .p-text-2, .quote-text, .entry-lbl, .ph-text, .p-text, .about-dream, .about-idea, .about-hp, .nav-text, .menu-list, .nav-list li a {
   font-family: Montserrat;
   font-style: normal;
   font-size: 18px;
@@ -32,7 +67,7 @@ p, h1, h2, h3, h4 {
   font-weight: 500;
 }
 
-.p-text, .about-idea, .about-hp {
+.p-text, .about-dream, .about-idea, .about-hp {
   font-weight: 400;
   color: #2F4858;
 }
@@ -58,11 +93,24 @@ p, h1, h2, h3, h4 {
   color: #2F4858;
 }
 
-.htext, .title, .htext-2, .htext-2-resp, .bold-quote-text {
+.p-text-2 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #2F4858;
+}
+@media (max-width: 576px) {
+  .p-text-2 {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+.htext, .title, .htext-2-L, .htext-2, .htext-2-resp, .bold-quote-text {
   font-family: Oswald;
   font-weight: 500;
   font-size: 48px;
-  line-height: 71.14px;
+  line-height: 53.35px;
   color: #2F4858;
   text-transform: uppercase;
   text-align: center;
@@ -71,6 +119,17 @@ p, h1, h2, h3, h4 {
 .htext-2, .htext-2-resp, .bold-quote-text {
   font-size: 24px;
   line-height: 36px;
+}
+
+.htext-2-L {
+  font-size: 30px;
+  line-height: 44.46px;
+}
+@media (max-width: 576px) {
+  .htext-2-L {
+    font-size: 24px;
+    line-height: 36px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -247,7 +306,12 @@ nav a:hover {
 .p-container, .p-container-vanilla {
   position: relative;
   text-align: center;
-  margin: 0 2.5rem;
+  margin: 0 5rem;
+}
+@media (max-width: 576px) {
+  .p-container, .p-container-vanilla {
+    margin: 0 1.25rem;
+  }
 }
 .p-container-vanilla {
   margin: 9.375rem 2.5rem;
@@ -259,9 +323,9 @@ nav a:hover {
 }
 
 .about-hp {
+  max-width: 40.875rem;
   position: relative;
   margin: auto;
-  max-width: 40.875rem;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 @media (max-width: 576px) {
@@ -272,15 +336,40 @@ nav a:hover {
 }
 
 .about-idea {
+  max-width: 37.875rem;
   position: relative;
   margin: auto;
-  max-width: 37.875rem;
 }
 @media (max-width: 576px) {
   .about-idea {
     font-size: 12px;
     line-height: 14.63px;
   }
+}
+
+.about-dream {
+  max-width: 25rem;
+  position: relative;
+  margin: auto;
+  min-height: 9.375rem;
+}
+@media (max-width: 576px) {
+  .about-dream {
+    font-size: 12px;
+    line-height: 14.63px;
+  }
+}
+@media (max-width: 992px) {
+  .about-dream {
+    min-height: 0;
+    max-width: 37.5rem;
+  }
+}
+
+.about-bus {
+  max-width: 50.75rem;
+  position: relative;
+  margin: auto;
 }
 
 .gallery-vec-btm, .gallery-vec-top {
@@ -408,17 +497,17 @@ nav a:hover {
  } */
 .quote-block {
   position: relative;
-  max-width: 37.5rem;
+  max-width: 47.5rem;
   margin: 0 auto 12rem;
 }
 @media (max-width: 992px) {
   .quote-block {
-    margin: 0 5.25rem 12rem;
+    margin-bottom: 12rem;
   }
 }
 @media (max-width: 576px) {
   .quote-block {
-    margin: 0 1.25rem 7.5rem;
+    margin-bottom: 7.5rem;
   }
 }
 .quote-block p {
@@ -439,10 +528,49 @@ nav a:hover {
   opacity: 0.5;
 }
 
+.qpad {
+  padding: 0 5.25rem;
+}
 @media (max-width: 576px) {
-  .q-sub {
-    font-size: 14px !important;
-    line-height: 17px !important;
+  .qpad {
+    padding: 0 1.25rem;
+  }
+}
+
+.button-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+@media (min-width: 1700px) {
+  .button-container {
+    justify-content: center;
+  }
+}
+
+.button-field {
+  margin-bottom: 9.375rem;
+  padding: 0 5%;
+}
+.button-field h2 {
+  padding-bottom: 3.125rem;
+}
+@media (max-width: 992px) {
+  .button-field {
+    margin-bottom: 5rem;
+  }
+  .button-field h2 {
+    padding-bottom: 1.875rem;
+    font-size: 18px;
+    line-height: 26.68px;
+  }
+}
+@media (max-width: 576px) {
+  .button-field h2 {
+    padding-bottom: 0.625rem;
   }
 }
 
