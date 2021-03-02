@@ -41,6 +41,10 @@ $(".play-icon").click(function() {
 	$(".main-vid").toggle();
 	$(".play-icon").toggle();
 	$(".close-icon").toggle();
+	//$(".vid-thumbnail").css(opacity
+	$(".video-fade").css({
+		"z-index": 1
+	})
 })
 
 $(".close-icon").click(function() {
@@ -48,6 +52,9 @@ $(".close-icon").click(function() {
 	$(".main-vid").toggle();
 	$(".play-icon").toggle();
 	$(".close-icon").toggle();
+	$(".video-fade").css({
+		"z-index": -1
+	})
 })
 
 
@@ -73,18 +80,6 @@ $('#quote-slider').on('slid.bs.carousel', function () {
 		}
 	$(".quote-nav-" + direction).css({"opacity": .5})
 })
-
-/* $(".quote-selection")[0].addEventListener("click", () => {
-	console.log("clicked");
-	let direction;
-	if ( $("#quote-first").hasClass("active") ) {
-		direction = "prev";	
-		} else if ( $("#quote-last").hasClass("active") ) {
-			direction = "next";
-		} else {direction = "";}
-	$(".quote-nav-" + direction).css({"opacity": .5})
-}); */
-
 
 let formData;
 $("#btn-submit").click(function() {

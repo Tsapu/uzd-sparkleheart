@@ -53,6 +53,12 @@ p, h1, h2, h3, h4 {
 		line-height: 22px !important;
 	}
 }
+.t-text-resize-L { 
+	@media (max-width: 992px) {
+		font-size: 18px !important; 
+		line-height: 22px !important;
+	}
+}
 
 .mb-6 {	margin-bottom: 3.75rem !important; }
 .mb-6-m {
@@ -62,12 +68,28 @@ p, h1, h2, h3, h4 {
 .mb-7 {	margin-bottom: 5.625rem !important; }
 .mb-7-m {
 	@extend .mb-7;	
-	@media (max-width: 576px) {margin-bottom: 4.375 !important}
+	@media (max-width: 576px) {margin-bottom: 4.375rem !important}
+}
+.mb-8 {	margin-bottom: 7.5rem !important; }
+.mb-8-m {
+	@extend .mb-8;	
+	@media (max-width: 992px) {margin-bottom: 6.25rem !important}
+	@media (max-width: 576px) {margin-bottom: 3.75rem !important}
 }
 
 .align-center {
 	display: flex;
 	justify-content: center;
+}
+
+.mt-medium {
+	margin-top: 9.375rem !important;
+	@media (max-width: 576px) {margin-top: 7.5rem !important}
+}
+.mb-title-alt {
+	margin-bottom: 3.125rem;
+	@media (max-width: 992px) {margin-bottom: 1.875rem }
+	@media (max-width: 576px) {margin-bottom: 1.25rem }
 }
 //----------------------------------------------
 // Text Formats & Headings
@@ -174,6 +196,7 @@ $r-tablet: .805;
 $r-mobile: .490;
 $r-mobile-t: .608;
 
+$r-icon: .78;
 //----------------------
 // Pos & size:
 //----------------------
@@ -314,7 +337,7 @@ nav {
 }
 
 //----------------------------------------------
-// Introduction
+// Video
 //----------------------------------------------
 .video-container {
 	position: relative;
@@ -330,16 +353,33 @@ nav {
 	.main-vid {
 		position: absolute;
 		display: none;
+		z-index: 3;
 	}
 	.close-icon {
 		position: absolute;
 		display: none;
 		right: 6%;
 		top: 16%;
+		z-index: 10;
 		cursor: pointer;
 		@media (max-width: 576px) { height: 14px; width: 14px; }
 	}
+	
+	.vid-sm { right: 14.5%; }
 }
+
+.video-fade {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	background-color: black;
+	opacity: .8;
+}
+
+//----------------------------------------------
+// Paragraphs & headings
+//----------------------------------------------
 
 .title {
 	@extend .htext;
@@ -396,6 +436,12 @@ nav {
 	@media (max-width: 992px) { min-height: 0; max-width: 37.5rem }
 }
 .about-bus { @include p-box(50.75rem); }
+.about-dreambank { 
+	@include about(31.25rem);
+	display: inline-block;
+	@media (max-width: 992px) { max-width: 22rem }
+}
+.about-
  
 //----------------------------------------------
 // Gallery
@@ -487,9 +533,9 @@ nav {
 	}
  }
  
- //----------------------------------------------
- // Quote slider
- //----------------------------------------------
+//----------------------------------------------
+// Quote slider
+//----------------------------------------------
  
 /*  .person-heading {
 	 margin-bottom: 1.875rem;
@@ -536,9 +582,9 @@ nav {
 	@media (max-width: 576px) { padding: 0 1.25rem }
 }
 
- //----------------------------------------------
- // Button divs
- //----------------------------------------------
+//----------------------------------------------
+// Content wrappers
+//----------------------------------------------
 
 .button-container {
 	width: 100%;
@@ -570,9 +616,127 @@ nav {
 	}
 }
 
- //----------------------------------------------
- // Contact Us
- //----------------------------------------------
+.p-item {
+	position: relative;
+	display: flex;
+	width: auto;
+	align-items: center;
+	margin-bottom: 9.375rem;
+	padding: 0 5rem;
+	p {margin: 0}
+	@media (max-width: 992px) {
+		margin-bottom: 6.25rem !important;
+	}	
+	@media (max-width: 576px) {
+		margin-bottom: 3.75rem !important;
+		padding: 0 1.25rem;
+		flex-direction: column;
+	}
+	
+	&-y {
+		display: inline-block;
+		flex-direction: column;
+		max-width: 30rem;
+		@media (max-width: 992px) { max-width: 18rem; padding: 0 1rem; }
+		text-align: center;
+	}
+}
+
+.pull {
+	&-left {
+		text-align: right;
+		direction: rtl;
+		
+		//right: 47%;
+		//margin-right: 30rem;
+		margin-right: 35%;
+		
+		@media (min-width: 1900px) { margin-right: 42%; }		
+		@media (max-width: 992px) { margin: auto; }
+		@media (max-width: 576px) { text-align: center; }
+	}
+	&-right {
+		text-align: left;
+		
+		//left: 39%;
+		//margin-left: 23.75rem;	
+		margin-left: 28%;
+		
+		@media (min-width: 1900px) { margin-left: 35%; }			
+		@media (max-width: 992px) { margin: auto; }
+		@media (max-width: 576px) { text-align: center; }
+	}
+}
+
+.p-icon {
+	position: relative;
+	@media (max-width: 576px) {		
+		width: resize(150px, .78);
+		height: auto;
+		margin: 1.25rem 0 !important;
+	}
+	&-left {
+		@extend .p-icon;
+		margin-right: 3.75rem;
+
+	}
+	&-right {
+		@extend .p-icon;
+		margin-left: 3.75rem;
+
+	}
+
+}
+
+//----------------------------------------------
+// Miscellaneous
+//----------------------------------------------
+
+.vector-wrap {
+	position: relative;
+	background: url(../img/sponsor-vec.svg);
+	background-repeat: no-repeat;
+	background-size: 150% 100%;
+	@media (max-width: 576px) { background-size: auto 100%; }
+	
+	width: 100%;
+	height: auto;
+	
+	h2 { padding-top: 5rem; }
+	
+	margin-top: 5rem;
+	border: 1px solid transparent; //?
+}
+
+.sized {
+	display: flex;
+	flex-direction: column;
+	height: 33rem;
+	@media (max-width: 992px) { height: 33rem; }
+	img { margin: 4.7rem auto 2.5rem; }
+	@media (max-width: 576px) { 
+		height: 29rem;
+		img { 
+			width: resize(368px, .735); 
+			height: auto;
+			margin-bottom: 1.875rem;
+		}
+	}
+}
+
+.img-rs {
+	&-154 { @media (max-width: 992px) { width: resize(154px, .66); }
+			@media (max-width: 576px) { width: resize(154px, .66); }
+			height: auto; }			
+	&-190 { @media (max-width: 992px) { width: resize(190px, .83); }
+			@media (max-width: 576px) { width: resize(190px, .66); }
+			height: auto; }
+}
+.set-mw { max-width: 64rem; }
+
+//----------------------------------------------
+// Contact Us
+//----------------------------------------------
 .contact-div {
 	position: relative;
 	width: 100%;
@@ -634,8 +798,15 @@ nav {
 
 .entry-field {
 	width: 40rem;
-	h2 { margin-bottom: 2rem; }
+	h2 { 
+		margin-bottom: 3.5rem; 
+		@media (max-width: 576px) { margin-bottom: 1.875rem; }
+	}
 	@media (max-width: 576px) { width: 20rem }
+}
+
+.form-group {
+	@media (max-width: 576px) { margin-bottom: 0.625rem; }
 }
 
 .form-control,
@@ -682,26 +853,8 @@ nav {
 //----------------------------------------------
 // Foooter
 //----------------------------------------------
-.sponsors {
-	position: relative;
-	background: url(../img/sponsor-vec.svg);
-	background-repeat: no-repeat;
-	background-size: 150% 100%;
-	@media (max-width: 576px) { background-size: auto 100%; }
-	
-	width: 100%;
-	height: auto;
-	
-	h2 {
-		//text-align: center;
-		padding-top: 5rem;
-	}
-	
-	margin-top: 5rem;
-	border: 1px solid transparent; //?
-}
 
-.sponsor-div {
+.sponsor-container {
 	display: flex;
 	width: 100%;
 	height: auto;
