@@ -429,7 +429,7 @@ nav {
 	@include about(40.875rem);
 	@include shadow;
 }
-.about-idea { @include about(37.875rem); }
+.about-idea { @include about(37.875rem); position: initial; }
 .about-dream { 
 	@include about(25rem);
 	min-height: 9.375rem;
@@ -441,7 +441,6 @@ nav {
 	display: inline-block;
 	@media (max-width: 992px) { max-width: 22rem }
 }
-.about-
  
 //----------------------------------------------
 // Gallery

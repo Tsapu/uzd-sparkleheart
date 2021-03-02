@@ -398,6 +398,7 @@ nav a:hover {
   max-width: 37.875rem;
   position: relative;
   margin: auto;
+  position: initial;
 }
 @media (max-width: 576px) {
   .about-idea {
@@ -449,13 +450,13 @@ nav a:hover {
   }
 }
 
-.about- .gallery-vec-btm, .about- .gallery-vec-top {
+.gallery-vec-btm, .gallery-vec-top {
   position: absolute;
   z-index: 2;
   width: 100%;
 }
 @media (max-width: 576px) {
-  .about- .gallery-vec-btm, .about- .gallery-vec-top {
+  .gallery-vec-btm, .gallery-vec-top {
     width: initial;
   }
 }
