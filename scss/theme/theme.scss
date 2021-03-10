@@ -19,11 +19,12 @@ $white: #FFFFFF;
 
 //Breakpoints: <0-----------576px(sm)-----------992px(lg)----------------+Inf>
 
-$mobile: 576px;
-$tablet: 992px;
 
+html {
+	overflow-x: hidden;
+}
 
-html, body {
+body {
     width:100%;
     height:100%;
     margin:0;
@@ -39,8 +40,8 @@ p, h1, h2, h3, h4 {
 //----------------------------------------------
 // Utilities
 //----------------------------------------------
-
 @mixin shadow { text-shadow: 0px 4px 4px rgba(0,0,0,.25); }
+.no-disp { display: none; }
 .m-text-resize { 
 	@media (max-width: 576px) {
 		font-size: 14px !important; 
@@ -59,7 +60,9 @@ p, h1, h2, h3, h4 {
 		line-height: 22px !important;
 	}
 }
+.oswald-18 { font-size: 18px !important; line-height: 26.68px !important; }
 
+.mb-5-2 { margin-bottom: 1.875rem !important; }
 .mb-6 {	margin-bottom: 3.75rem !important; }
 .mb-6-m {
 	@extend .mb-6;
@@ -75,6 +78,9 @@ p, h1, h2, h3, h4 {
 	@extend .mb-8;	
 	@media (max-width: 992px) {margin-bottom: 6.25rem !important}
 	@media (max-width: 576px) {margin-bottom: 3.75rem !important}
+}
+.mpad {
+	@media (max-width: 576px) { padding: 0 1.25rem; }
 }
 
 .align-center {
@@ -119,6 +125,13 @@ p, h1, h2, h3, h4 {
 	@extend .normal-text;
 	font-weight: 400;
 	color: $blue;
+	letter-spacing: -0.015em;
+}
+
+.lbl-text {
+	@extend .normal-text;
+	font-weight: 500;
+	color: $orange;
 	letter-spacing: -0.015em;
 }
 
@@ -174,7 +187,6 @@ p, h1, h2, h3, h4 {
 	}
 }
 
-
 .htext-2-resp {
 	@extend .htext-2;
 	@media (max-width: 576px) {
@@ -187,6 +199,14 @@ p, h1, h2, h3, h4 {
 	@extend .htext-2-resp;
 	text-transform: none;
 	color: $white;
+}
+
+.bold-oswald {
+	font-family: Oswald;
+	font-weight: 700;
+	font-size: 36px;
+	line-height: 53.35px;
+	color: white;
 }
 
 //----------------------
@@ -233,7 +253,7 @@ nav {
 	height: $nav-height;
 	width: 100%;
 	background-color: white;
-	z-index: 4;
+	z-index: 8;
 
 	a:hover {
 		color: $black-2;
@@ -249,7 +269,7 @@ nav {
 	height: $logo-height;
 	top: $logo-top;
 	left: $logo-left;
-	z-index: 100;
+	z-index: 30;
 	
 	@media (max-width: 992px) {
 		width: resize($logo-width, $r-tablet);
@@ -264,7 +284,7 @@ nav {
 	width: 100%;
 	//height: 2.183rem;
 	top: $border-offset;
-	z-index: 4;
+	z-index: 8;
 }
 
 .menu-icon,
@@ -339,6 +359,20 @@ nav {
 //----------------------------------------------
 // Video
 //----------------------------------------------
+.blue-overlay {
+	position: fixed;
+	display: none;
+	height: 100%;
+	width: 100%;
+	background-color: $blue;
+	opacity: .9;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 9;
+}
+
 .video-container {
 	position: relative;
 	display: flex;
@@ -346,6 +380,7 @@ nav {
 	align-items: center;
 	
 	.play-icon {
+		z-index: 4;
 		cursor: pointer;
 		@media (max-width: 576px) { height: 48px; width: 50px; }
 	}
@@ -355,6 +390,16 @@ nav {
 		display: none;
 		z-index: 3;
 	}
+	
+	.video-focus {
+		position: fixed;
+		top: 20%;
+		z-index: 10 !important;
+		@media (max-width: 992px) {
+			width: 90%;
+		}
+	}
+	
 	.close-icon {
 		position: absolute;
 		display: none;
@@ -365,7 +410,8 @@ nav {
 		@media (max-width: 576px) { height: 14px; width: 14px; }
 	}
 	
-	.vid-sm { right: 14.5%; }
+	.vid-m { right: 14.5%; }
+	.vid-sm { right: 20%; top: 25%; }
 }
 
 .video-fade {
@@ -578,7 +624,7 @@ nav {
 .qpad {
 	padding: 0 5.25rem;
 	//@media (max-width: 992px) { padding: 0 5.25rem }
-	@media (max-width: 576px) { padding: 0 1.25rem }
+	@extend .mpad;
 }
 
 //----------------------------------------------
@@ -665,6 +711,9 @@ nav {
 		@media (max-width: 992px) { margin: auto; }
 		@media (max-width: 576px) { text-align: center; }
 	}
+	&-up {
+		margin-top: -4rem !important;
+	}
 }
 
 .p-icon {
@@ -684,7 +733,137 @@ nav {
 		margin-left: 3.75rem;
 
 	}
+}
 
+.video-grid {
+	position: relative;
+	margin: 9.375rem 10rem;
+
+	@media (max-width: 992px) {
+		margin: 5rem;
+	}
+	@media (max-width: 576px) {
+		margin: 5rem 1.25rem;
+	}
+	@media (min-width: 1400px) {
+		margin: 9.375rem auto;
+		max-width: 64.375rem;
+	}
+	counter-reset: vid-counter;
+	.row {
+		& > div {
+			@extend .bold-oswald;
+			text-align: center;
+			//border: 2px solid black;
+			padding: 7px;
+			counter-increment: vid-counter;
+			
+			&:before {
+				z-index: 1;
+				content: counter(vid-counter);
+				position: absolute;
+				bottom: .5rem;
+				right: 1rem;		
+			}
+			span {
+				z-index: 4;
+				display: none;
+				position: absolute;
+				width: 100%;
+				top: 22.5%;
+				left: 0;
+				font-size: 24px;
+				line-height: 35.57px;
+			}
+			
+			&:hover {
+				cursor: pointer;
+				.overlay { opacity: 1; }
+				span { display: block; }
+			}
+		}
+		
+		img.overlay { 
+			position: absolute;
+			//z-index: 3;
+			opacity: .6;
+			width: 100.6%;
+			height: auto;
+			left: 0;
+			top: 0;
+			border: 7px solid white;
+		}
+		
+		img.grid-element {			
+			width: 100%;
+			height: auto;
+			
+			@media (max-width: 992px) {
+				//width: 8.875rem;
+			}			
+			@media (max-width: 576px) {
+				//width: 8.375rem;
+			}
+		}
+	}
+	
+	button {
+		@media (min-width: 992px) { display: none; }
+	}
+	@media (max-width: 992px) {
+		.row > div:nth-child(n+21) {
+			display: none;
+		}
+	}
+}
+
+.team-cards {
+	//border: 2px solid black;
+	position: relative;
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	
+	div {
+		position: relative;
+		//border: 1px solid red;
+		padding: .75rem 2.625rem;
+		
+		.card-gradient {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(180deg, rgba(47, 72, 88, 0.8) 18.63%, rgba(47, 72, 88, 0) 49.21%);
+			background-clip: content-box;
+			transform: rotate(-180deg);
+		}
+		
+		.annotation {
+			position: absolute;
+			width: 100%;
+			left: 0;
+			bottom: .75rem;
+			
+			h2 {
+				font-family: Oswald;
+				font-size: 24px;
+				line-height: 35.57px;
+			}
+			
+			text-align: center;
+			font-weight: 500;
+			color: white;
+		}
+	}
+	
+	@media (max-width: 992px) {
+		padding: 0 8rem;
+	}
+	
 }
 
 //----------------------------------------------
@@ -733,9 +912,17 @@ nav {
 }
 .set-mw { max-width: 64rem; }
 
+#map {
+	height: 40.5rem;
+	width: 100%;
+}
+
 //----------------------------------------------
-// Contact Us
+// Form elements
 //----------------------------------------------
+
+[placeholder]:focus::placeholder { color: transparent; }
+
 .contact-div {
 	position: relative;
 	width: 100%;
@@ -804,6 +991,93 @@ nav {
 	@media (max-width: 576px) { width: 20rem }
 }
 
+//----------------------------------------------
+// Custom dropdown
+//----------------------------------------------
+.selection {
+	position: relative;
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	@media (max-width: 576px) { padding-bottom: 4.375rem; }
+	//border: 2px solid black;
+}
+.selection-item {
+	width: 18rem;
+	margin: 0 1rem 3.75rem;
+	@media (max-width: 576px) { margin: 0 0 2.5rem; }
+	//border: 2px solid green;
+}
+
+.form-control-dropdown {
+	&:focus { box-shadow: none; }
+	cursor: pointer;
+	
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-image: url(../img/selection-arrow.svg);
+	background-repeat: no-repeat;
+	background-position-x: 95%;
+	background-position-y: 50%;
+}
+//----------------------------------------------
+//JS classes for dropdown
+//----------------------------------------------
+.select {
+	position: relative;
+	width: 18rem;
+	cursor: pointer;
+	color: $blue;
+}
+.styledSelect {
+	background-color: rgba(196, 196, 196, 0.4);
+	border-radius: 6px;
+	padding: 10px 15px;
+	background-image: url(../img/selection-arrow.svg);
+	background-repeat: no-repeat;
+	background-position-x: 95%;
+	background-position-y: 50%;
+}
+
+.styledSelect:active, .styledSelect.active {
+    //background-color: #eee;
+}
+.selection-border { 
+	border-radius: 6px 6px 0 0;
+}
+.selection-hr {
+	display: none;
+	position: absolute;
+	width: 13.7rem;
+	/* margin-top: 0px; */
+	/* margin-bottom: -30px; */
+	//margin-left: 10px;
+	top: 1.75rem;
+	left: .9rem;
+	border-top: 2px solid $blue;
+}
+
+.options {
+	display: none;
+	li {
+		background-color: rgba(196, 196, 196, 0.4);
+		padding: 10px 15px;
+		border: 1px solid transparent;
+		//border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+		&:last-child {
+			border-radius: 0 0 6px 6px;
+		}
+		&:hover {
+			font-weight: 600;
+			opacity: .9;
+		}
+	}
+}
+
+//----------------------------------------------
+
 .form-group {
 	@media (max-width: 576px) { margin-bottom: 0.625rem; }
 }
@@ -811,7 +1085,9 @@ nav {
 .form-control,
 .form-control:focus, {
 	background-color: rgba(196, 196, 196, 0.4);
+	border: none;
 }
+
 
 #data-entry-consent {
 	-webkit-appearance: none;

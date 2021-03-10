@@ -23,7 +23,7 @@
 
 <body>
 	<div class="main">
-		
+		<div class="blue-overlay"></div>
 		<nav>
 			<a href="../index.html"><img class="nav-logo" src="../img/nav-logo.png"></a>
 			<img class="menu-icon" src="../img/nav-icon.svg">
@@ -53,15 +53,221 @@
 		<div class="p-container">
 			<h1 class="title mb-6">99 Iedvesmas stāsti</h1>
 			<p class="p-text-2 m-text-resize-L">Atklāj kādu no 99 aizraujošajiem stāstiem</p>
-		</div>	
+		</div>
 		
-		<div style="position: relative; height: 20rem; width: auto; margin: 5rem; display: flex; justify-content: center; align-items: center">
-			<p style="text-align: center;">I'm gonna stop y'all from even entering this dungeon.<br>LEAVE NOW</p>
+		<div class="video-container">
+			<!-- <img class="play-icon position-absolute no-disp" id="overlay-play" src="../img/play-icon.png" width="86" height="83"> -->
+			<video class="main-vid video-focus" width="67%" height="auto" controls muted>
+				<source src="" type=video/mp4>
+			</video>
+			<img class="close-icon position-fixed vid-sm" id="overlay-close" src="../img/close.png" width="30" height="30">
+		</div>
+		
+		<div class="video-grid">
+			<div class="row">
+			
+				<div class="col-6 col-sm-3 col-lg-2" id="video-1">				
+					<img class="grid-element" src="../img/1.jpg">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-2">				
+					<img class="grid-element" src="../img/2.jpg">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-3">				
+					<img class="grid-element" src="../img/3.jpg">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-4">				
+					<img class="grid-element" src="../img/4.jpg">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-5">					
+					<img class="grid-element" src="../img/6.jpg">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-6">	
+					<img class="grid-element" src="../img/7.jpg">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-7">					
+					<img class="grid-element" src="../img/8.jpg">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-8">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span class="oswald-18 d-block">Jauns stāsts tiks<br>pievienots drīzumā</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-9">					
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-10">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-11">					
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-12">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-13">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-14">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-15">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-16">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-17">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-18">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-19">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-20">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-21">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-22">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-23">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-24">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-25">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-26">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-27">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-28">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-29">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-30">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-31">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+				<div class="col-6 col-sm-3 col-lg-2" id="video-32">	
+					<img class="grid-element" src="../img/vid-placehold.png">
+					<img class="overlay" src="../img/vid-placehold.png">
+					<span>Vārds<br>Uzvārds</span>
+				</div>
+			</div>
+			
+			<div class="align-center">
+				<button class="btn-main mt-5" id="expand-btn" onclick="expand()">Skatīt vairāk</button>
+			</div>				
+		</div>
+		
+		<div class="p-container mb-7-m">
+			<h2 class="htext-2-L mt-medium mb-5-2">Sparkle Heart Komanda</h2>
+			<p class="about-idea m-text-resize mpad">Radošā komanda, kura strādā ar projektu 99 un starptautiskām Sparkle Heart īsfilmām.</p>
+		</div>		
+		
+		<div class="team-cards">
+			<div class="">
+				<img class="" src="../img/juris-2.jpg">
+				<div class="card-gradient"></div>
+				<div class="annotation">
+					<h2>Juris Gogulis</h2>
+					<p class="normal-text px-2">Idejas ģenerators un režisors</p>
+				</div>
+			</div>
+			<div class="">
+				<img class="" src="../img/girts.jpg">
+				<div class="card-gradient"></div>
+				<div class="annotation">
+					<h2>Ģirts Ceriņš</h2>
+					<p class="normal-text px-2">Operators un montāžas speciālists</p>
+				</div>
+			</div>
+			<div class="">
+				<img class="" src="../img/janis.jpg">
+				<div class="card-gradient"></div>
+				<div class="annotation">
+					<h2>Jānis Zurģis</h2>
+					<p class="normal-text px-2">Animācijas un grafiskā dizaina meistars</p>
+				</div>
+			</div>
 		</div>
 			
-		<footer>	
+		<footer class="mt-medium">	
 			<div class="footer-info">
-				<div class="d-flex row no-gutters">
+				<div class="row no-gutters">
 					<div class="logo-column col">
 						<img class="footer-logo" src="../img/golden-sparkle-logo.png">
 						<ul><li class="mx-3 my-4">Juris&nbsp;Gogulis</li></ul>

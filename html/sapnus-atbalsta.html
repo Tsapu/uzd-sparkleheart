@@ -13,22 +13,22 @@
   <link rel="stylesheet" href="../css/normalize.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/theme.css">
-	
+
 	<!--Bootstrap JS functionality-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	
+
 </head>
 
 <body>
 	<div class="main">
-		
+
 		<nav>
 			<a href="../index.html"><img class="nav-logo" src="../img/nav-logo.png"></a>
 			<img class="menu-icon" src="../img/nav-icon.svg">
 			<img class="menu-close" src="../img/menu-close.png">
-			
+
 			<div class="nav-list" id="nav-list">
 				<ul class="d-flex flex-row justify-content-between" id="menu">
 						<li><a href="./ideja.html">Ideja</a></li>
@@ -36,32 +36,63 @@
 						<li><a href="./uznemejiem.html">Uzņēmējiem</a></li>
 						<li><a href="./sapnu-banka.html">Sapņu banka</a></li>
 						<li><a href="./sapnus-atbalsta.html">Sapņus atbalsta</a></li>
-						<li><a href="./99-iedvesmas-stasti.html">99 Iedvesmas stāsti</a></li>	
+						<li><a href="./99-iedvesmas-stasti.html">99 Iedvesmas stāsti</a></li>
 						<li>
 							<ul class="lang">
 								<li><a href="404.html" id="LV">LV</a></li>
 								<li><a href="404.html" id="EN">EN</a></li>
 								<li><a href="404.html" id="RU">RU</a></li>
-							</ul>						
+							</ul>
 						</li>
 				</ul>
 			</div>
 			<img class="nav-border" src="../img/nav-border.svg">
 		</nav>
-		<div class="empty-nav-div"></div>	
-		
-		
-		<div class="p-container">
+		<div class="empty-nav-div"></div>
+
+		<div class="p-container mb-7-m">
 			<h1 class="title">Sapņus atbalsta</h1>
-			<p class="about-bus normal-text m-text-resize">Sadarbības partneri ir uzņēmumi, kuri savā preču vai pakalpojumu ikdienā ir integrējuši SparkleHeart zīmolu un dala ar to konkrētu daļu savu ienākumu.</p>
-		</div>	
-		
-		<div style="position: relative; height: 20rem; width: auto; margin: 5rem; display: flex; justify-content: center; align-items: center">
-			<p>I'm gonna stop y'all from even entering this dungeon</p>
+			<p class="about-bus p-text m-text-resize">Sadarbības partneri ir uzņēmumi, kuri savā preču vai pakalpojumu ikdienā ir integrējuši SparkleHeart zīmolu un dala ar to konkrētu daļu savu ienākumu.</p>
 		</div>
-			
+
+		<svg width="0" height="0" class="hidden">
+			<symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 9" id="select-arrow">
+				<path xmlns="http://www.w3.org/2000/svg" d="M7.54628 7.78784L13.7763 1.72407C13.9206 1.58382 14 1.3966 14 1.19698C14 0.997353 13.9206 0.810135 13.7763 0.669887L13.3176 0.223333C13.0188 -0.0672429 12.533 -0.0672429 12.2345 0.223333L7.0029 5.31523L1.76547 0.217683C1.62126 0.0774353 1.42901 8.58966e-09 1.22402 0C1.0188 -8.5992e-09 0.826562 0.0774352 0.682238 0.217683L0.223656 0.664237C0.0794461 0.804595 9.10254e-09 0.991703 0 1.19133C-9.10254e-09 1.39095 0.0794461 1.57817 0.223656 1.71842L6.45941 7.78784C6.60408 7.92842 6.79723 8.00563 7.00256 8.00519C7.20869 8.00563 7.40173 7.92842 7.54628 7.78784Z" fill="#2F4858"/>
+			</symbol>
+<!-- 			<symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 219 2" id="hr">
+				<svg width="219" height="2" viewBox="0 0 219 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M0 1L219 1" stroke="#2F4858"/></svg>
+			</symbol> -->
+		</svg>
+
+		<div class="selection">
+			<div class="selection-item form-group">
+				<label class="lbl-text m-text-resize" for="sel1">Uzņēmuma atrašanās vieta</label>
+        <select class="d-none" id="selectbox1">
+					<option value="">Izvēlies</option>
+					<option value="riga">Rīga</option>
+					<option value="valmiera">Valmiera</option>
+					<option value="ogre">Ogre</option>
+					<option value="liepaja">Liepāja</option>
+        </select>
+			</div>
+		
+			<div class="selection-item form-group">
+				<label class="lbl-text m-text-resize" for="sel1">Uzņēmuma veids</label>
+				<select class="d-none" id="selectbox2">
+					<option value="">...</option>
+					<option value="0_o">Stabs</option>
+					<option value="">Koks</option>
+					<option value="">Žogs</option>
+        </select>
+			</div>
+		</div>
+		
+		<div id="map">
+		</div>
+		
 		<footer>
-			<div class="footer-info">
+			<div class="footer-info pull-up">
 				<div class="d-flex row no-gutters">
 					<div class="logo-column col">
 						<img class="footer-logo" src="../img/golden-sparkle-logo.png">
@@ -74,7 +105,7 @@
 							<li><a href="./uznemejiem.html">Uzņēmējiem</a></li>
 							<li><a href="./sapnu-banka.html">Sapņu banka</a></li>
 							<li><a href="./sapnus-atbalsta.html">Sapņus atbalsta</a></li>
-							<li><a href="./99-iedvesmas-stasti.html">99 Iedvesmas stāsti</a></li>	
+							<li><a href="./99-iedvesmas-stasti.html">99 Iedvesmas stāsti</a></li>
 						</ul>
 					</div>
 					<div class="org-info col">
@@ -97,7 +128,7 @@
 							<a href="https://facebook.com" target="_blank"><img src="../img/facebook.svg"></a>
 							<a href="https://instagram.com" target="_blank"><img src="../img/instagram.svg"></a>
 						</div>
-					</div>				
+					</div>
 				</div>
 
 				<div class="row footer-btm-row mt-4">
@@ -107,13 +138,15 @@
 					<div class="col-sm-6 col-12">
 						<span>Privātuma politika</span>
 					</div>
-				</div>			
+				</div>
 			</div>
 		</footer>
-		
+
 	</div>
-		
+	
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrRIAvAKX50ecY3EkepR8kqcmqt0BtdpU&callback=initMap&libraries=&v=weekly" async></script>
   <script src="../js/main.js"></script>
+
 
 </body>
 </html>
